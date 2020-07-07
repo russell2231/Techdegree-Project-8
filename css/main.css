@@ -1,0 +1,138 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fcfcfc;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.container {
+  margin: 2rem;
+}
+
+.title {
+  text-align: center;
+}
+
+#employee-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  margin-top: 4rem;
+  row-gap: 2rem;
+}
+
+#employee-container .employee {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+}
+
+#employee-container .employee .avatar {
+  border-radius: 50%;
+  width: 100px;
+  display: block;
+  padding: 1rem;
+}
+
+#employee-container .employee .text-container {
+  padding-left: 1rem;
+}
+
+#employee-container .employee .text-container .name {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+#employee-container .employee .text-container .email,
+#employee-container .employee .text-container .address {
+  color: #9ba0a3;
+  font-size: 1.5rem;
+}
+
+#employee-container .employee .text-container .email {
+  padding-bottom: 0.5rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(100, 100, 100, 0.4);
+}
+
+.overlay .modal {
+  width: 375px;
+  margin: 15% auto auto;
+  position: relative;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #778;
+  border-radius: 5px;
+  padding: 3rem 2rem;
+}
+
+.overlay .modal .modal-close {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.overlay .modal .modal-content .avatar {
+  border-radius: 50%;
+  width: 200px;
+  padding: 1rem;
+}
+
+.overlay .modal .modal-content .text-container {
+  padding-left: 1rem;
+}
+
+.overlay .modal .modal-content .text-container .name {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.overlay .modal .modal-content .text-container .email,
+.overlay .modal .modal-content .text-container .address,
+.overlay .modal .modal-content .text-container .phone,
+.overlay .modal .modal-content .text-container .birthday,
+.overlay .modal .modal-content .text-container .city {
+  color: #9ba0a3;
+  font-size: 1.5rem;
+}
+
+.overlay .modal .modal-content .text-container .email,
+.overlay .modal .modal-content .text-container .phone,
+.overlay .modal .modal-content .text-container .address,
+.overlay .modal .modal-content .text-container .birthday {
+  padding-bottom: 0.5rem;
+}
+
+.overlay .modal .modal-content .text-container hr {
+  margin: 3rem 0;
+}
+
+.hidden {
+  display: none;
+}
