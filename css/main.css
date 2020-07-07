@@ -17,11 +17,27 @@ body {
 
 .container {
   padding: 2rem 1rem;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 2rem;
+    padding: 5rem 2rem;
+    max-width: 800px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 5rem 7rem;
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
   }
 }
 
@@ -29,11 +45,21 @@ body {
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .title {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    text-align: left;
+  }
+}
+
 #employee-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 100%;
-      grid-template-columns: 100%;
   margin-top: 4rem;
   row-gap: 2rem;
 }
@@ -44,6 +70,13 @@ body {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 3rem;
     width: 100%;
+  }
+}
+
+@media (min-width: 1440px) {
+  #employee-container {
+    -ms-grid-columns: (minmax(0, 1fr))[3];
+        grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -64,12 +97,18 @@ body {
   border-radius: 50%;
   width: 100px;
   display: block;
-  padding: 1rem;
+  margin: 1rem;
 }
 
 @media (min-width: 768px) {
   #employee-container .employee .avatar {
     width: 110px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #employee-container .employee .avatar {
+    width: 120px;
   }
 }
 
@@ -83,23 +122,10 @@ body {
   padding-bottom: 0.5rem;
 }
 
-@media (min-width: 768px) {
-  #employee-container .employee .text-container .name {
-    font-size: 2.3rem;
-  }
-}
-
 #employee-container .employee .text-container .email,
 #employee-container .employee .text-container .address {
-  color: #9ba0a3;
+  color: #777;
   font-size: 1.4rem;
-}
-
-@media (min-width: 768px) {
-  #employee-container .employee .text-container .email,
-  #employee-container .employee .text-container .address {
-    font-size: 1.5rem;
-  }
 }
 
 #employee-container .employee .text-container .email {
@@ -126,31 +152,20 @@ body {
   padding: 3rem 2rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .overlay .modal {
-    width: 475px;
+    margin: 10% auto auto;
   }
 }
 
 .overlay .modal .modal-close {
   position: absolute;
-  right: 15px;
-  top: 5px;
+  right: 20px;
+  top: 10px;
   cursor: pointer;
   background: #fff;
   border: none;
-}
-
-@media (min-width: 768px) {
-  .overlay .modal .modal-close {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .overlay .modal .modal-content {
-    padding: 2rem;
-  }
+  font-size: 2rem;
 }
 
 .overlay .modal .modal-content .avatar {
@@ -159,26 +174,12 @@ body {
   padding: 1rem;
 }
 
-@media (min-width: 768px) {
-  .overlay .modal .modal-content .avatar {
-    width: 250px;
-  }
-}
-
 .overlay .modal .modal-content .text-container {
   padding-left: 1rem;
 }
 
 .overlay .modal .modal-content .text-container .name {
-  font-size: 2.5rem;
-  padding-bottom: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .overlay .modal .modal-content .text-container .name {
-    font-size: 3rem;
-    padding-bottom: 1rem;
-  }
+  font-size: 2rem;
 }
 
 .overlay .modal .modal-content .text-container .email,
@@ -186,34 +187,16 @@ body {
 .overlay .modal .modal-content .text-container .phone,
 .overlay .modal .modal-content .text-container .birthday,
 .overlay .modal .modal-content .text-container .city {
-  color: #9ba0a3;
-  font-size: 1.8rem;
+  color: #777;
+  font-size: 1.4rem;
 }
 
-@media (min-width: 768px) {
-  .overlay .modal .modal-content .text-container .email,
-  .overlay .modal .modal-content .text-container .address,
-  .overlay .modal .modal-content .text-container .phone,
-  .overlay .modal .modal-content .text-container .birthday,
-  .overlay .modal .modal-content .text-container .city {
-    font-size: 2rem;
-  }
-}
-
+.overlay .modal .modal-content .text-container .name,
 .overlay .modal .modal-content .text-container .email,
 .overlay .modal .modal-content .text-container .phone,
 .overlay .modal .modal-content .text-container .address,
 .overlay .modal .modal-content .text-container .birthday {
-  padding-bottom: 0.5rem;
-}
-
-@media (min-width: 768px) {
-  .overlay .modal .modal-content .text-container .email,
-  .overlay .modal .modal-content .text-container .phone,
-  .overlay .modal .modal-content .text-container .address,
-  .overlay .modal .modal-content .text-container .birthday {
-    padding-bottom: 1.5rem;
-  }
+  padding-bottom: 1.5rem;
 }
 
 .overlay .modal .modal-content .text-container hr {

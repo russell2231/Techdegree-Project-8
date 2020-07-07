@@ -18,24 +18,43 @@ body {
 
 .container {
   padding: 2rem 1rem;
+  max-width: 500px;
+  margin: 0 auto;
   @include tablet {
-    padding: 2rem;
+    padding: 5rem 2rem;
+    max-width: 800px;
+  }
+  @include desktop {
+    padding: 5rem 7rem;
+    max-width: 1024px;
+  }
+  @include ultrawide {
+    max-width: 1440px;
   }
 }
 
 .title {
   text-align: center;
+  @include tablet {
+    text-align: left;
+  }
+  @include desktop {
+    text-align: left;
+    // font-size: 2.5rem;
+  }
 }
 
 #employee-container {
   display: grid;
-  grid-template-columns: 100%;
   margin-top: 4rem;
   row-gap: 2rem;
   @include tablet {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 3rem;
     width: 100%;
+  }
+  @include ultrawide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .employee {
@@ -50,9 +69,12 @@ body {
       border-radius: 50%;
       width: 100px;
       display: block;
-      padding: 1rem;
+      margin: 1rem;
       @include tablet {
         width: 110px;
+      }
+      @include desktop {
+        width: 120px;
       }
     }
     .text-container {
@@ -62,17 +84,11 @@ body {
       .name {
         font-size: 2rem;
         padding-bottom: 0.5rem;
-        @include tablet {
-          font-size: 2.3rem;
-        }
       }
       .email,
       .address {
-        color: #9ba0a3;
+        color: #777;
         font-size: 1.4rem;
-        @include tablet {
-          font-size: 1.5rem;
-        }
       }
       .email {
         padding-bottom: 0.5rem;
@@ -99,63 +115,45 @@ body {
     border: 1px solid #778;
     border-radius: 5px;
     padding: 3rem 2rem;
-    @include tablet {
-      width: 475px;
+    @include desktop {
+      margin: 10% auto auto;
     }
 
     .modal-close {
       position: absolute;
-      right: 15px;
-      top: 5px;
+      right: 20px;
+      top: 10px;
       cursor: pointer;
       background: #fff;
       border: none;
-      @include tablet {
-        font-size: 2.5rem;
-      }
+      font-size: 2rem;
     }
     .modal-content {
-      @include tablet {
-        padding: 2rem;
-      }
       .avatar {
         border-radius: 50%;
         width: 200px;
         padding: 1rem;
-        @include tablet {
-          width: 250px;
-        }
       }
       .text-container {
         padding-left: 1rem;
 
         .name {
-          font-size: 2.5rem;
-          padding-bottom: 0.5rem;
-          @include tablet {
-            font-size: 3rem;
-            padding-bottom: 1rem;
-          }
+          font-size: 2rem;
         }
         .email,
         .address,
         .phone,
         .birthday,
         .city {
-          color: #9ba0a3;
-          font-size: 1.8rem;
-          @include tablet {
-            font-size: 2rem;
-          }
+          color: #777;
+          font-size: 1.4rem;
         }
+        .name,
         .email,
         .phone,
         .address,
         .birthday {
-          padding-bottom: 0.5rem;
-          @include tablet {
-            padding-bottom: 1.5rem;
-          }
+          padding-bottom: 1.5rem;
         }
         hr {
           margin: 3rem 0;

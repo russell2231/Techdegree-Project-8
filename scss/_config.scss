@@ -3,3 +3,13 @@
     @content;
   }
 }
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin ultrawide {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
