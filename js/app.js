@@ -20,7 +20,7 @@ const maxNum = 12;
 function getEmployees() {
   if (cnt >= maxNum) return; // stop
 
-  http.get('https://randomuser.me/api/').then((data) => {
+  http.get('https://randomuser.me/api/?nat=us').then((data) => {
     employees.push(data);
     const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
     const email = `${data.results[0].email}`;
@@ -56,8 +56,9 @@ function displayModal(index) {
       const city = `${employee.results[0].location.city}`;
       const picture = `${employee.results[0].picture.large}`;
       const phone = `${employee.results[0].phone}`;
-      const address = `${employee.results[0].location.street.number}, ${employee.results[0].location.state} ${employee.results[0].location.postcode}}`;
-      const dob = `${employee.results[0].dob}`;
+      const address = `${employee.results[0].location.street.number} ${employee.results[0].location.street.name}, ${employee.results[0].location.state} ${employee.results[0].location.postcode}`;
+      const dob = `${employee.results[0].dob.date}`;
+      console.log(employee);
 
       let date = new Date(dob);
       const modalHTML = `
@@ -69,7 +70,9 @@ function displayModal(index) {
           <hr>
           <p class="phone">${phone}</p>
           <p class="address">${address}</p>
-          <p class="birthday">Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+          <p class="birthday">Birthday: ${
+            date.getMonth() + 1
+          }/${date.getDate()}/${date.getFullYear()}</p>
         </div>
       `;
 
@@ -79,6 +82,7 @@ function displayModal(index) {
   });
 }
 
+// Open Modal
 gridContainer.addEventListener('click', (e) => {
   if (e.target !== gridContainer) {
     const employee = e.target.closest('.employee');
@@ -88,6 +92,7 @@ gridContainer.addEventListener('click', (e) => {
   }
 });
 
+// Close Modal
 modalClose.addEventListener('click', () => {
   overlay.classList.add('hidden');
 });

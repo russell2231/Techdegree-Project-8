@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  margin: 2rem;
+  padding: 2rem 1rem;
 }
 
 .title {
@@ -44,6 +44,7 @@ body {
     }
     .text-container {
       padding-left: 1rem;
+
       .name {
         font-size: 2rem;
         padding-bottom: 0.5rem;
@@ -51,7 +52,7 @@ body {
       .email,
       .address {
         color: #9ba0a3;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
       .email {
         padding-bottom: 0.5rem;
@@ -60,8 +61,9 @@ body {
   }
 }
 
+// Modal
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;

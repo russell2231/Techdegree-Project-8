@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-  margin: 2rem;
+  padding: 2rem 1rem;
 }
 
 .title {
@@ -64,7 +64,7 @@ body {
 #employee-container .employee .text-container .email,
 #employee-container .employee .text-container .address {
   color: #9ba0a3;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 #employee-container .employee .text-container .email {
@@ -72,7 +72,7 @@ body {
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
