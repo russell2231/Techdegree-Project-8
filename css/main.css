@@ -19,6 +19,12 @@ body {
   padding: 2rem 1rem;
 }
 
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+}
+
 .title {
   text-align: center;
 }
@@ -30,6 +36,15 @@ body {
       grid-template-columns: 100%;
   margin-top: 4rem;
   row-gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  #employee-container {
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 3rem;
+    width: 100%;
+  }
 }
 
 #employee-container .employee {
@@ -52,8 +67,15 @@ body {
   padding: 1rem;
 }
 
+@media (min-width: 768px) {
+  #employee-container .employee .avatar {
+    width: 110px;
+  }
+}
+
 #employee-container .employee .text-container {
   padding-left: 1rem;
+  overflow: auto;
 }
 
 #employee-container .employee .text-container .name {
@@ -61,10 +83,23 @@ body {
   padding-bottom: 0.5rem;
 }
 
+@media (min-width: 768px) {
+  #employee-container .employee .text-container .name {
+    font-size: 2.3rem;
+  }
+}
+
 #employee-container .employee .text-container .email,
 #employee-container .employee .text-container .address {
   color: #9ba0a3;
   font-size: 1.4rem;
+}
+
+@media (min-width: 768px) {
+  #employee-container .employee .text-container .email,
+  #employee-container .employee .text-container .address {
+    font-size: 1.5rem;
+  }
 }
 
 #employee-container .employee .text-container .email {
@@ -91,11 +126,31 @@ body {
   padding: 3rem 2rem;
 }
 
+@media (min-width: 768px) {
+  .overlay .modal {
+    width: 475px;
+  }
+}
+
 .overlay .modal .modal-close {
   position: absolute;
   right: 15px;
   top: 5px;
   cursor: pointer;
+  background: #fff;
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .overlay .modal .modal-close {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .overlay .modal .modal-content {
+    padding: 2rem;
+  }
 }
 
 .overlay .modal .modal-content .avatar {
@@ -104,13 +159,26 @@ body {
   padding: 1rem;
 }
 
+@media (min-width: 768px) {
+  .overlay .modal .modal-content .avatar {
+    width: 250px;
+  }
+}
+
 .overlay .modal .modal-content .text-container {
   padding-left: 1rem;
 }
 
 .overlay .modal .modal-content .text-container .name {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .overlay .modal .modal-content .text-container .name {
+    font-size: 3rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .overlay .modal .modal-content .text-container .email,
@@ -119,7 +187,17 @@ body {
 .overlay .modal .modal-content .text-container .birthday,
 .overlay .modal .modal-content .text-container .city {
   color: #9ba0a3;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+  .overlay .modal .modal-content .text-container .email,
+  .overlay .modal .modal-content .text-container .address,
+  .overlay .modal .modal-content .text-container .phone,
+  .overlay .modal .modal-content .text-container .birthday,
+  .overlay .modal .modal-content .text-container .city {
+    font-size: 2rem;
+  }
 }
 
 .overlay .modal .modal-content .text-container .email,
@@ -127,6 +205,15 @@ body {
 .overlay .modal .modal-content .text-container .address,
 .overlay .modal .modal-content .text-container .birthday {
   padding-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .overlay .modal .modal-content .text-container .email,
+  .overlay .modal .modal-content .text-container .phone,
+  .overlay .modal .modal-content .text-container .address,
+  .overlay .modal .modal-content .text-container .birthday {
+    padding-bottom: 1.5rem;
+  }
 }
 
 .overlay .modal .modal-content .text-container hr {
