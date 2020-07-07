@@ -91,6 +91,11 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding: 1rem;
+  cursor: pointer;
+}
+
+#employee-container .employee:hover {
+  opacity: 0.6;
 }
 
 #employee-container .employee .avatar {
