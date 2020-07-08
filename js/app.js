@@ -14,6 +14,7 @@ const gridContainer = document.getElementById('employee-container');
 const overlay = document.querySelector('.overlay');
 const modalContainer = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
+const search = document.getElementById('search');
 
 // Employees Variables
 const employees = [];
@@ -50,7 +51,6 @@ function displayEmployees() {
     gridContainer.innerHTML += employeeHTML;
   });
 }
-console.log(employees);
 
 // Create Modal
 function displayModal(index) {
@@ -102,3 +102,19 @@ modalClose.addEventListener('click', () => {
 overlay.addEventListener('click', () => {
   overlay.classList.add('hidden');
 });
+
+// Search Employees
+function lookUp(e) {
+  const users = document.querySelectorAll('.employee .text-container h2');
+  const usersToArray = Array.from(users);
+  const input = e.target.value.toUpperCase();
+
+  usersToArray.forEach((user) => {
+    if (!user.textContent.toUpperCase().includes(input)) {
+      user.parentElement.parentElement.style.display = 'none';
+    } else {
+      user.parentElement.parentElement.style.display = '';
+    }
+  });
+}
+search.addEventListener('keyup', lookUp);

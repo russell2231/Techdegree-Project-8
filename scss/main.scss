@@ -16,31 +16,61 @@ body {
   position: relative;
 }
 
-.container {
-  padding: 2rem 1rem;
-  max-width: 500px;
+header {
+  padding: 2rem 1rem 0;
   margin: 0 auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include tablet {
-    padding: 5rem 2rem;
+    padding: 4rem 2rem 0;
     max-width: 800px;
+    flex-direction: row;
+    justify-content: space-between;
   }
   @include desktop {
-    padding: 5rem 7rem;
+    padding: 4rem 7rem 0;
     max-width: 1024px;
   }
   @include ultrawide {
     max-width: 1440px;
   }
+
+  .title {
+    text-align: center;
+    @include tablet {
+      text-align: left;
+    }
+  }
+  #search {
+    margin-top: 2rem;
+    width: 50%;
+    padding: 0.5rem 1rem;
+    @include tablet {
+      width: 30%;
+      margin: 0;
+    }
+    @include ultrawide {
+      width: 25%;
+    }
+  }
 }
 
-.title {
-  text-align: center;
+.container {
+  padding: 2rem 1rem;
+  max-width: 500px;
+  margin: 0 auto;
   @include tablet {
-    text-align: left;
+    padding: 2rem 2rem 5rem;
+    max-width: 800px;
   }
   @include desktop {
-    text-align: left;
-    // font-size: 2.5rem;
+    padding: 2rem 7rem 5rem;
+    max-width: 1024px;
+  }
+  @include ultrawide {
+    max-width: 1440px;
   }
 }
 
