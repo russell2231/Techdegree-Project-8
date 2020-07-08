@@ -1,3 +1,4 @@
+// HTTP Fetch
 class HTTP {
   async get(url) {
     const response = await fetch(url);
@@ -7,26 +8,34 @@ class HTTP {
 }
 
 const http = new HTTP();
+
+// UI Variables
 const gridContainer = document.getElementById('employee-container');
-const employees = [];
 const overlay = document.querySelector('.overlay');
 const modalContainer = document.querySelector('.modal-content');
 const modalClose = document.querySelector('.modal-close');
 
-let cnt = 0;
-const maxNum = 12;
+// Employees Variables
+const employees = [];
 
 // Get Employees
-function getEmployees() {
-  if (cnt >= maxNum) return; // stop
+http
+  .get('https://randomuser.me/api/?nat=us&results=12')
+  .then((data) => {
+    for (employee of data.results) {
+      employees.push(employee);
+    }
+  })
+  .then(displayEmployees)
+  .catch((err) => console.log(err));
 
-  http.get('https://randomuser.me/api/?nat=us').then((data) => {
-    employees.push(data);
-    const name = `${data.results[0].name.first} ${data.results[0].name.last}`;
-    const email = `${data.results[0].email}`;
-    const city = `${data.results[0].location.city}`;
-    const picture = `${data.results[0].picture.large}`;
-    const index = `${data.info.seed}`;
+// Display Employees
+function displayEmployees() {
+  employees.forEach((employee, index) => {
+    const name = `${employee.name.first} ${employee.name.last}`;
+    const email = `${employee.email}`;
+    const city = `${employee.location.city}`;
+    const picture = `${employee.picture.large}`;
 
     const employeeHTML = `
         <div class="employee" data-index="${index}">
@@ -38,48 +47,42 @@ function getEmployees() {
           </div>
         </div>
       `;
-
     gridContainer.innerHTML += employeeHTML;
-
-    cnt++;
-    getEmployees();
   });
 }
-getEmployees();
+console.log(employees);
 
 // Create Modal
 function displayModal(index) {
-  employees.forEach((employee) => {
-    if (employee.info.seed === `${index}`) {
-      const name = `${employee.results[0].name.first} ${employee.results[0].name.last}`;
-      const email = `${employee.results[0].email}`;
-      const city = `${employee.results[0].location.city}`;
-      const picture = `${employee.results[0].picture.large}`;
-      const phone = `${employee.results[0].phone}`;
-      const address = `${employee.results[0].location.street.number} ${employee.results[0].location.street.name}, ${employee.results[0].location.state} ${employee.results[0].location.postcode}`;
-      const dob = `${employee.results[0].dob.date}`;
-      console.log(employee);
+  const {
+    name,
+    dob,
+    phone,
+    email,
+    location: { city, street, state, postcode },
+    picture,
+  } = employees[index];
 
-      let date = new Date(dob);
-      const modalHTML = `
-        <img class ="avatar" src="${picture}">
-        <div class ="text-container">
-          <h2 class="name">${name}</h2>
-          <p class="email">${email}</p>
-          <p class="city">${city}</p>
-          <hr>
-          <p class="phone">${phone}</p>
-          <p class="address">${address}</p>
-          <p class="birthday">Birthday: ${
-            date.getMonth() + 1
-          }/${date.getDate()}/${date.getFullYear()}</p>
-        </div>
-      `;
+  let date = new Date(dob.date);
+  const modalHTML = `
+    <img class ="avatar" src="${picture.large}">
+    <div class ="text-container">
+      <h2 class="name">${name.first} ${name.last}</h2>
+      <p class="email">${email}</p>
+      <p class="city">${city}</p>
+      <hr>
+      <p class="phone">${phone}</p>
+      <p class="address">${street.number} ${
+    street.name
+  }, ${state} ${postcode}</p>
+      <p class="birthday">Birthday: ${
+        date.getMonth() + 1
+      }/${date.getDate()}/${date.getFullYear()}</p>
+    </div>
+  `;
 
-      overlay.classList.remove('hidden');
-      modalContainer.innerHTML = modalHTML;
-    }
-  });
+  overlay.classList.remove('hidden');
+  modalContainer.innerHTML = modalHTML;
 }
 
 // Open Modal
